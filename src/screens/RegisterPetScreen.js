@@ -111,7 +111,9 @@ const  RegisterPetScreen = () => {
           <Button
             title="Limpiar"
             onPress={handleClear}
+            color={styles.colorButton}
           />
+          
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
