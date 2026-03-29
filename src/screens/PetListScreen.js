@@ -45,6 +45,8 @@ const PetListScreen =({ navigation }) => {
         renderItem={renderItem}
       />
     </SafeAreaView>
+
+    
   );
 }
 

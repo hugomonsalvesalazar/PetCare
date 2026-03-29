@@ -1,20 +1,32 @@
-import { StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import { globalStyles } from '../theme/globalStyles';
+import { colors } from '../theme/colors';
 
- StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16
-  },
-  card: {
-    backgroundColor: '#f2f2f2',
-    padding: 20,
-    borderRadius: 12,
-    elevation: 3
-  },
-  text: {
-    fontSize: 16,
-    marginBottom: 8
-  }
-});
+const PetDetailScreen = ({ route }) => {
+  const { pet } = route.params;
 
-export default StyleSheet
+  return (
+    <View style={globalStyles.screen}>
+      <View style={[globalStyles.card, { alignItems: 'center' }]}>
+        
+        <Text style={{ fontSize: 60 }}>
+          {pet.species === 'Perro' ? '' : ''}
+        </Text>
+
+        <Text style={{ fontSize: 22, fontWeight: 'bold', color: colors.textPrimary }}>
+          {pet.name}
+        </Text>
+
+        <Text style={{ color: colors.textSecondary }}>
+          {pet.species}
+        </Text>
+
+        <Text style={{ color: '#94a3b8' }}>
+          {pet.breed}
+        </Text>
+      </View>
+    </View>
+  );
+};
+
+export default PetDetailScreen;
