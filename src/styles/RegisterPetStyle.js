@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   padding: 15,
   borderRadius: 10,
   alignItems: 'center',
-  marginBottom: 10 // 👈 separación entre botones
+  marginBottom: 10 // 
 },
 
 });

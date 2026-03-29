@@ -5,7 +5,7 @@ import { colors } from '../theme/colors';
 const AddPetScreen = () => {
   return (
     <View style={globalStyles.screen}>
-      <Text style={globalStyles.title}>➕ Nueva Mascota</Text>
+      <Text style={globalStyles.title}> Nueva Mascota</Text>
 
       <TextInput placeholder="Nombre" style={styles.input} />
       <TextInput placeholder="Especie" style={styles.input} />
