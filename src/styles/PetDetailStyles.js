@@ -1,20 +1,28 @@
-import { StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import detailStyles from '../PetDetailStyles';
 
- StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16
-  },
-  card: {
-    backgroundColor: '#f2f2f2',
-    padding: 20,
-    borderRadius: 12,
-    elevation: 3
-  },
-  text: {
-    fontSize: 16,
-    marginBottom: 8
-  }
-});
+export default function PetDetailScreen({ route, navigation }) {
+  const { pet } = route.params;
 
-export default StyleSheet
+  return (
+    <SafeAreaView style={detailStyles.container}>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginBottom: 16 }}>
+        <Ionicons name="arrow-back" size={24} color="#333" />
+      </TouchableOpacity>
+      <View style={detailStyles.card}>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 8 }}>{pet.name}</Text>
+        <Text style={detailStyles.text}>🐾 Especie: {pet.species}</Text>
+        <Text style={detailStyles.text}>🎂 Edad: {pet.age} años</Text>
+        <Text style={detailStyles.text}>📅 Registrado: {new Date().toLocaleDateString()}</Text>
+      </View>
+      <TouchableOpacity
+        style={{ backgroundColor: '#E53935', padding: 16, borderRadius: 12, marginTop: 20, alignItems: 'center' }}
+        onPress={() => navigation.navigate('RegisterPet', { editPet: pet })}
+      >
+        <Text style={{ color: '#FFF', fontWeight: 'bold', fontSize: 16 }}>Editar / Actualizar</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
+  );
+}
